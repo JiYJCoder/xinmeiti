@@ -1,0 +1,140 @@
+<?php
+   $implist = M('Article')->where('catid=5 and posid=1')->limit(3)->order('createtime')->select();
+   $implist1 = M('Article')->where('catid=5 and posid=8')->limit(3)->order('createtime')->select();
+   $implist2 = M('Article')->where('catid=5 and posid=9')->limit(3)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=5 and posid=2')->limit(3)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="articleListTop clearfix">
+        <div class="articleListTop_l fl">
+            <div class="swiper-container caijing-container">
+                <div class="swiper-wrapper">
+                    <volist name="implist" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="caijingTop_lpic"><img src="{$r.thumb}" width="695" height="350" alt=""></div>
+                            <div class="caijingTop_ltitle">{$r.title} </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="pagination caijing-pagination"></div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="yishuTop_tcatname"><a href="">艺术人物</a></div>
+            <div class="swiper-container yishu-container">
+                <a href="#" class="yishu-left"></a>
+                <a href="#" class="yishu-right"></a>
+                <div class="swiper-wrapper">
+                    <volist name="implist1" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="yishuTop_rpic"><img src="{$r.thumb}" width="280" height="190" alt=""></div>
+                            <div class="yishuTop_rword">
+                                <div class="yishuTop_rtitle">{$r.title}<span>艺术家</span></div>
+                                <div class="yishuTop_rabout">{$r.description}</div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="pagination yishu-pagination"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="yishuTop_listcon">
+            <div class="yishuTop_listcatname"><a href="">艺术  直播</a></div>
+            <div class="yishuTop_list hoverBox">
+                <ul class="clearfix">
+                    <volist name="implist2" id="r">
+                        <li>
+                            <a href="" class="block"></a>
+                            <div class="yishuTop_listpic"><img src="{$r.thumb}" width="325" height="200" alt=""></div>
+                            <div class="yishuTop_listgo"><img src="/dist/pc/images/in78.png" width="69" height="76" alt=""></div>
+                            <div class="yishuTop_listword">
+                                <div class="yishuTop_listtitle">{$r.title}</div>
+                                <div class="yishuTop_listabout">{$r.description}</div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="articleList clearfix">
+        <div class="articleList_l fl">
+            <div class="articleList_lcon hoverBox">
+                <ul id="ajax_list_ul">
+                    <volist name="list" id="r">
+                        <li>
+                            <div class="articleList_lBox">
+                                <a href="" class="block"></a>
+                                <div class="articleList_lpic"><img src="{$r.thumb}" width="220" height="130" alt=""></div>
+                                <div class="articleList_lword">
+                                    <div class="articleList_ltitle ms300">{$r.title}</div>
+                                    <div class="articleList_labout">{$r.description}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            {if $pages}
+            <div class="ajax-page">
+                <div class="ajax_tips">
+                    加载中....
+                </div>
+                <div class="ajaxpage">
+                    {$pages}
+                </div>
+                <div class="fixedloading">
+                    <div class="loader"></div>
+                </div>
+                <div class="fixedloadingbg"></div>
+            </div>
+            {/if}
+            <div class="articleList_lload"><a href="javaScript:void(0);">加载更多+</a></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">艺术展览</a></div>
+                <volist name="rightlist1" id="r">
+                    <div class="yishuList_ritem">
+                        <a href="" class="block"></a>
+                        <div class="yishuList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                        <div class="yishuList_rtitle ms300">{$r.title}</div>
+                        <div class="yishuList_rabout">{$r.description}</div>
+                        <div class="yishuList_rword">
+                            {$r.content}
+                        </div>
+                    </div>
+                    {if $i==1}
+                    <div class="inAD"><a href=""><img src="<YP:block pos='artAdv' type='image' />" alt=""></a></div>
+                    {/if}
+                    <div class="clear" style="height: 30px;"></div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var caijingSwiper = new Swiper('.caijing-container',{
+        pagination: '.caijing-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+    var yishuSwiper = new Swiper('.yishu-container',{
+        pagination: '.yishu-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+    $('.yishu-left').on('click', function(e){
+        e.preventDefault()
+        yishuSwiper.swipePrev()
+    })
+    $('.yishu-right').on('click', function(e){
+        e.preventDefault()
+        yishuSwiper.swipeNext()
+    })
+</script>

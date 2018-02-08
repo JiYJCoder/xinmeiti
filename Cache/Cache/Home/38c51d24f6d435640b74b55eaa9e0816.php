@@ -51,7 +51,7 @@
 		<div class="w1000">
 			<div class="headerNav1">
 				<ul class="clearfix">
-					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="">首页</a></li>
+					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="/">首页</a></li>
 					<?php $n=0;foreach($Categorys as $key=>$r):if($n<99) :if( intval(0)==$r["parentid"] ) :++$n; $arrCount = count(explode(",",$r['arrchildid'])); ?>
 					<li class="<?php if($arrCount>1) : ?>hasChild<?php endif; if($catid == $r[id] || $parentid == $r[id]) : ?>current<?php endif;?>"><a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a></li>
 							<?php
@@ -66,8 +66,81 @@
 		</div>
 	</div>
 </div>
-
-
+<?php
+ $tj1 = M('Article')->where('catid='.$catid.' and posid='.$posid)->limit(10)->select(); $tj2 = M('Article')->where('catid='.$catid)->order('hits')->limit(4)->select(); ?>
+<div class="contain w1000">
+    <div class="article clearfix">
+        <div class="article_l fl">
+            <div class="article_lcon">
+                <div class="article_ltitle"><?php echo ($title); ?></div>
+                <div class="article_mess"><span>时间：<?php echo date('Y-m-d',$createtime) ?></span></div>
+                <div class="article_word">
+                    <?php echo ($content); ?>
+                </div>
+                <div class="article_operate clearfix">
+                    <div class="article_writer fl">负责编辑：<?php echo ($username); ?></div>
+                    <div class="article_share fr">
+                        <span>分享到：</span>
+                        <div class="bdsharebuttonbox">
+                            <a href="#" id="bds_qzone" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="#" id="bds_sqq" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                            <a href="#" id="bds_tsina" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="#" id="bds_weixin" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article_pos">
+                <div class="article_posTitle"><span>为你推荐</span></div>
+                <div class="articleList_lcon hoverBox">
+                    <ul>
+                        <?php if(is_array($tj2)): $i = 0; $__LIST__ = $tj2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li>
+                                <div class="articleList_lBox">
+                                    <a href="<?php echo ($r["url"]); ?>" class="block"></a>
+                                    <div class="articleList_lpic"><img src="<?php echo ($r["thumb"]); ?>" width="220" height="130" alt=""></div>
+                                    <div class="articleList_lword">
+                                        <div class="articleList_ltitle ms300"><?php echo ($r["title"]); ?></div>
+                                        <div class="articleList_labout"><?php echo ($r["description"]); ?></div>
+                                    </div>
+                                </div>
+                            </li><?php endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear" style="height: 106px;"></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">精品推荐</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                         <?php if(is_array($tj1)): $i = 0; $__LIST__ = $tj1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li class="articleList_rli1">
+                                 <a href="<?php echo ($r["url"]); ?>" class="block"></a>
+                                 <div class="articleList_rpic"><img src="<?php echo ($r["thumb"]); ?>" width="280" height="160" alt=""></div>
+                                 <div class="articleList_rtitleW"><div class="articleList_rtitle ms300"><?php echo ($r["title"]); ?></div></div>
+                             </li><?php endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="/dist/pc/images/in56.jpg" alt=""></a></div>
+        </div>
+    </div>
+</div>
+<script>
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{},
+            "bdText":"",
+            "bdMini":"1",
+            "bdMiniList":[],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"24"
+        },
+        "share":{}
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 <div class="w1000">
     <?php
  $typelink = M('Type')->where('parentid = 1')->select(); $link = array(); foreach($typelink as $val){ $link[] = M('Link')->where('typeid='.$val['typeid'])->select(); } ?>

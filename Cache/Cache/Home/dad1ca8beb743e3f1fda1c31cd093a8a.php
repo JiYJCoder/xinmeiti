@@ -51,7 +51,7 @@
 		<div class="w1000">
 			<div class="headerNav1">
 				<ul class="clearfix">
-					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="">首页</a></li>
+					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="/">首页</a></li>
 					<?php $n=0;foreach($Categorys as $key=>$r):if($n<99) :if( intval(0)==$r["parentid"] ) :++$n; $arrCount = count(explode(",",$r['arrchildid'])); ?>
 					<li class="<?php if($arrCount>1) : ?>hasChild<?php endif; if($catid == $r[id] || $parentid == $r[id]) : ?>current<?php endif;?>"><a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a></li>
 							<?php

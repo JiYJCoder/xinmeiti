@@ -51,7 +51,7 @@
 		<div class="w1000">
 			<div class="headerNav1">
 				<ul class="clearfix">
-					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="">首页</a></li>
+					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="/">首页</a></li>
 					<?php $n=0;foreach($Categorys as $key=>$r):if($n<99) :if( intval(0)==$r["parentid"] ) :++$n; $arrCount = count(explode(",",$r['arrchildid'])); ?>
 					<li class="<?php if($arrCount>1) : ?>hasChild<?php endif; if($catid == $r[id] || $parentid == $r[id]) : ?>current<?php endif;?>"><a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a></li>
 							<?php
@@ -71,8 +71,8 @@
         <div class="inItem1_l fl">
             <h3 class="inTitle"><a href="">重要新聞</a></h3>
             <div class="inItem1_lcon">
-                <a href="" class="block"></a>
-                <div class="inItem1_lPic"><img src="images/in4.jpg" width="640" height="420" alt=""></div>
+                <a href="information_2.html" class="block"></a>
+                <div class="inItem1_lPic"><img src="/dist/pc/images/in4.jpg" width="640" height="420" alt=""></div>
                 <div class="inItem1_ltitle ms300">习近平在视察陆军某师时强调:大抓实战化军事训练</div>
                 <div class="inItem1_lword">央视网消息：中共中央总书记、国家主席、中央军委主席习近平3日视察中部战区陆军某师，强调要认真贯彻党的十九大精神，贯彻新时代党的强军思想，大抓实战化军事训练，深入推进数字化部队建设管理和作战运用创新，聚力打造精锐作战力量。</div>
             </div>
@@ -82,13 +82,13 @@
             <div class="inItem1_rCon hoverBox">
                 <ul>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem1_rPic"><img src="images/in5.jpg" width="300" height="200" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem1_rPic"><img src="/dist/pc/images/in5.jpg" width="300" height="200" alt=""></div>
                         <div class="inItem1_rTitle">秦淮花灯 “走出去”的非遗手艺</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem1_rPic"><img src="images/in6.jpg" width="300" height="200" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem1_rPic"><img src="/dist/pc/images/in6.jpg" width="300" height="200" alt=""></div>
                         <div class="inItem1_rTitle">秦淮花灯 “走出去”的非遗手艺</div>
                     </li>
                 </ul>
@@ -100,23 +100,23 @@
         <div class="inItem2_con hoverBox">
             <ul class="clearfix">
                 <li>
-                    <a href="" class="block"></a>
-                    <div class="inItem2_pic"><img src="images/in7.jpg" width="215" height="128" alt=""><span>重要新闻</span></div>
+                    <a href="information_2.html" class="block"></a>
+                    <div class="inItem2_pic"><img src="/dist/pc/images/in7.jpg" width="215" height="128" alt=""><span>重要新闻</span></div>
                     <div class="inItem2_title ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                 </li>
                 <li>
-                    <a href="" class="block"></a>
-                    <div class="inItem2_pic"><img src="images/in8.jpg" width="215" height="128" alt=""></div>
+                    <a href="information_2.html" class="block"></a>
+                    <div class="inItem2_pic"><img src="/dist/pc/images/in8.jpg" width="215" height="128" alt=""></div>
                     <div class="inItem2_title ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                 </li>
                 <li>
-                    <a href="" class="block"></a>
-                    <div class="inItem2_pic"><img src="images/in9.jpg" width="215" height="128" alt=""></div>
+                    <a href="information_2.html" class="block"></a>
+                    <div class="inItem2_pic"><img src="/dist/pc/images/in9.jpg" width="215" height="128" alt=""></div>
                     <div class="inItem2_title ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                 </li>
                 <li>
-                    <a href="" class="block"></a>
-                    <div class="inItem2_pic"><img src="images/in10.jpg" width="215" height="128" alt=""></div>
+                    <a href="information_2.html" class="block"></a>
+                    <div class="inItem2_pic"><img src="/dist/pc/images/in10.jpg" width="215" height="128" alt=""></div>
                     <div class="inItem2_title ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                 </li>
             </ul>
@@ -129,17 +129,17 @@
                 <ul class="clearfix">
                     <li class="inItem3_big">
                         <a href="" class="block"></a>
-                        <div class="inItem3_lpic"><img src="images/in11.jpg" width="640" height="330" alt=""></div>
+                        <div class="inItem3_lpic"><img src="/dist/pc/images/in11.jpg" width="640" height="330" alt=""></div>
                         <div class="inItem3_ltitleW"><div class="inItem3_ltitle ms300">河南博物院金缕玉衣、彩绘陶仓楼、武则天金简亮相福州</div></div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem3_lpic"><img src="images/in12.jpg" width="315" height="200" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem3_lpic"><img src="/dist/pc/images/in12.jpg" width="315" height="200" alt=""></div>
                         <div class="inItem3_ltitleW"><div class="inItem3_ltitle ms300">國際燈光藝術節即將啟幕</div></div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem3_lpic"><img src="images/in13.jpg" width="315" height="200" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem3_lpic"><img src="/dist/pc/images/in13.jpg" width="315" height="200" alt=""></div>
                         <div class="inItem3_ltitleW"><div class="inItem3_ltitle ms300">白瓷時代的“一带一路”</div></div>
                     </li>
                 </ul>
@@ -150,42 +150,42 @@
             <div class="inItem3_rcon hoverBox">
                 <ul>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem3_rpic">
-                            <img src="images/in14.jpg" width="160" height="100" alt="">
-                            <span class="inItem3_ricon"><img src="images/in19.png" width="38" height="38" alt=""></span>
+                            <img src="/dist/pc/images/in14.jpg" width="160" height="100" alt="">
+                            <span class="inItem3_ricon"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
                         </div>
                         <div class="inItem3_rtitle ms300">兰州对部分区域取消住房限购 1月8日起正式实施</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem3_rpic">
-                            <img src="images/in15.jpg" width="160" height="100" alt="">
-                            <span class="inItem3_ricon"><img src="images/in19.png" width="38" height="38" alt=""></span>
+                            <img src="/dist/pc/images/in15.jpg" width="160" height="100" alt="">
+                            <span class="inItem3_ricon"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
                         </div>
                         <div class="inItem3_rtitle ms300">这名厅官诈骗"高铁一姐"</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem3_rpic">
-                            <img src="images/in16.jpg" width="160" height="100" alt="">
-                            <span class="inItem3_ricon"><img src="images/in19.png" width="38" height="38" alt=""></span>
+                            <img src="/dist/pc/images/in16.jpg" width="160" height="100" alt="">
+                            <span class="inItem3_ricon"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
                         </div>
                         <div class="inItem3_rtitle ms300">国内跑马跑得最快的"颜值女王"被检出兴奋剂违规</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem3_rpic">
-                            <img src="images/in17.jpg" width="160" height="100" alt="">
-                            <span class="inItem3_ricon"><img src="images/in19.png" width="38" height="38" alt=""></span>
+                            <img src="/dist/pc/images/in17.jpg" width="160" height="100" alt="">
+                            <span class="inItem3_ricon"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
                         </div>
                         <div class="inItem3_rtitle ms300">兰州对部分区域取消住房限购 1月8日起正式实施</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem3_rpic">
-                            <img src="images/in18.jpg" width="160" height="100" alt="">
-                            <span class="inItem3_ricon"><img src="images/in19.png" width="38" height="38" alt=""></span>
+                            <img src="/dist/pc/images/in18.jpg" width="160" height="100" alt="">
+                            <span class="inItem3_ricon"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
                         </div>
                         <div class="inItem3_rtitle ms300">花旗：“一带一路”對東盟增長很重要</div>
                     </li>
@@ -200,33 +200,33 @@
             <div class="inItem4_lcon hoverBox">
                 <ul class="clearfix">
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem4_lpic"><img src="images/in7.jpg" width="215" height="128" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem4_lpic"><img src="/dist/pc/images/in7.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem4_lpic"><img src="images/in8.jpg" width="215" height="128" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem4_lpic"><img src="/dist/pc/images/in8.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem4_lpic"><img src="images/in9.jpg" width="215" height="128" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem4_lpic"><img src="/dist/pc/images/in9.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_lpic"><img src="images/in21.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem4_lpic"><img src="images/in22.jpg" width="215" height="128" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem4_lpic"><img src="/dist/pc/images/in22.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
-                        <div class="inItem4_lpic"><img src="images/in23.jpg" width="215" height="128" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem4_lpic"><img src="/dist/pc/images/in23.jpg" width="215" height="128" alt=""></div>
                         <div class="inItem4_ltitle ms300">人民日报:一以贯之坚持和发展中国特色社会主义</div>
                     </li>
                 </ul>
@@ -237,47 +237,47 @@
             <div class="inItem4_rcon hoverBox">
                 <ul>
                     <li class="inItem4_rcon1">
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">商户挂无厘头横幅互相响应</div>
                     </li>
                     <li class="inItem4_rcon2">
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">北大"渐冻症女博士"去世</div>
                     </li>
                     <li class="inItem4_rcon3">
-                        <a href="" class="block"></a>
+                        <a href="information_2.htmlv" class="block"></a>
                         <div class="inItem4_rtitle ms300">商户挂无厘头横幅互相响应</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">医院副主任长期往主任水杯</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">旅客突然发病呕吐 乘务长跪</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">男子挪用4千万公款买彩票</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">男子奥迪车着火维修费22万</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">胡歌私信白血病粉丝：真正</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">国内跑马跑得最快的"颜值</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">偶像只能看一年，声优可以</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem4_rtitle ms300">专坑老年人的6大健康误区</div>
                     </li>
                 </ul>
@@ -290,19 +290,19 @@
         </div>
         <div class="inItem5_con clearfix">
             <div class="inItem5_l fl">
-                <a href="" class="block"></a>
-                <div class="inItem5_lpic"><img src="images/in29.jpg" width="320" height="200" alt=""></div>
+                <a href="information_2.html" class="block"></a>
+                <div class="inItem5_lpic"><img src="/dist/pc/images/in29.jpg" width="320" height="200" alt=""></div>
                 <div class="inItem5_ltitle ms300">北京动批大红门三千商户入驻天津</div>
             </div>
             <div class="inItem5_m fl">
                 <ul>
-                    <li><a href="" class="ms300">贾跃亭减持酷派18%股权亏12亿</a></li>
-                    <li><a href="" class="ms300">英特尔芯片漏洞震惊全球 上海网信</a></li>
-                    <li><a href="" class="ms300">揭秘贾乃亮和李小璐夫妇的商业版图</a></li>
-                    <li><a href="" class="ms300">美股指连续3天创新高 黄金连涨11天</a></li>
-                    <li><a href="" class="ms300">互金整治办发文：各地引导辖内企业</a></li>
-                    <li><a href="" class="ms300">360市值一天内相差773亿 江南</a></li>
-                    <li><a href="" class="ms300">土地市场平淡开局 “地王”将很难出</a></li>
+                    <li><a href="information_2.html" class="ms300">贾跃亭减持酷派18%股权亏12亿</a></li>
+                    <li><a href="information_2.html" class="ms300">英特尔芯片漏洞震惊全球 上海网信</a></li>
+                    <li><a href="information_2.html" class="ms300">揭秘贾乃亮和李小璐夫妇的商业版图</a></li>
+                    <li><a href="information_2.html" class="ms300">美股指连续3天创新高 黄金连涨11天</a></li>
+                    <li><a href="information_2.html" class="ms300">互金整治办发文：各地引导辖内企业</a></li>
+                    <li><a href="information_2.html" class="ms300">360市值一天内相差773亿 江南</a></li>
+                    <li><a href="information_2.html" class="ms300">土地市场平淡开局 “地王”将很难出</a></li>
                 </ul>
             </div>
             <div class="inItem5_r fr">
@@ -316,20 +316,20 @@
             <div class="inItem6_lcon hoverBox">
                 <ul>
                     <li class="inItem6_lhaspic">
-                        <a href="" class="block"></a>
-                        <div class="inItem6_lpic"><img src="images/in31.jpg" width="320" height="120" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem6_lpic"><img src="/dist/pc/images/in31.jpg" width="320" height="120" alt=""></div>
                         <div class="inItem6_ltitle ms300">北京动批大红门三千商户入驻天津</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_ltitle1 ms300">贾跃亭减持酷派18%股权亏12亿</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_ltitle1 ms300">英特尔芯片漏洞震惊全球 上海网信</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_ltitle1 ms300">揭秘贾乃亮和李小璐夫妇的商业版图</div>
                     </li>
                 </ul>
@@ -341,26 +341,26 @@
             <div class="inItem6_mcon hoverBox">
                 <ul>
                     <li class="inItem6_mconli1">
-                        <a href="" class="block"></a>
-                        <div class="inItem6_mpic"><img src="images/in32.jpg" width="155" height="120" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem6_mpic"><img src="/dist/pc/images/in32.jpg" width="155" height="120" alt=""></div>
                         <div class="inItem6_mtitles ms300">新年第一发 冬日莫斯科如梦如幻宛如童话</div>
                     </li>
                     <li class="inItem6_mconli2">
-                        <a href="" class="block"></a>
-                        <div class="inItem6_mpic"><img src="images/in33.jpg" width="155" height="120" alt=""></div>
+                        <a href="information_2.html" class="block"></a>
+                        <div class="inItem6_mpic"><img src="/dist/pc/images/in33.jpg" width="155" height="120" alt=""></div>
                         <div class="inItem6_mtitles ms300">新年第一发 冬日莫斯科如梦如幻宛如童话</div>
                     </li>
                     <div class="clear" style="height: 8px;"></div>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_mtitleb ms300">贾跃亭减持酷派18%股权亏12亿</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_mtitleb ms300">英特尔芯片漏洞震惊全球 上海网信</div>
                     </li>
                     <li>
-                        <a href="" class="block"></a>
+                        <a href="information_2.html" class="block"></a>
                         <div class="inItem6_mtitleb ms300">揭秘贾乃亮和李小璐夫妇的商业版图</div>
                     </li>
                 </ul>
@@ -371,20 +371,19 @@
             <h3 class="inTitle"><a href="">农业</a></h3>
             <div class="inItem6_rcon hoverBox">
                 <ul>
-                    <li><a href="" class="ms300">贾跃亭减持酷派18%股权亏12亿</a></li>
-                    <li><a href="" class="ms300">留学妹子打俩月工挣钱改造租房</a></li>
-                    <li><a href="" class="ms300">地毯谁还花钱买?旧衣服剪剪缝缝就能轻</a></li>
-                    <li><a href="" class="ms300">李玉刚私人工作室首曝光，室内装修古</a></li>
-                    <li><a href="" class="ms300">玄关改书房,次卧改浴室 他家的改造</a></li>
-                    <li><a href="" class="ms300">黎贝卡的200平高颜值复古家 超大衣帽</a></li>
-                    <li><a href="" class="ms300">英特尔芯片漏洞震惊全球 上海网信</a></li>
-                    <li><a href="" class="ms300">揭秘贾乃亮和李小璐夫妇的商业版图</a></li>
+                    <li><a href="information_2.html" class="ms300">贾跃亭减持酷派18%股权亏12亿</a></li>
+                    <li><a href="information_2.html" class="ms300">留学妹子打俩月工挣钱改造租房</a></li>
+                    <li><a href="information_2.html" class="ms300">地毯谁还花钱买?旧衣服剪剪缝缝就能轻</a></li>
+                    <li><a href="information_2.html" class="ms300">李玉刚私人工作室首曝光，室内装修古</a></li>
+                    <li><a href="information_2.html" class="ms300">玄关改书房,次卧改浴室 他家的改造</a></li>
+                    <li><a href="information_2.html" class="ms300">黎贝卡的200平高颜值复古家 超大衣帽</a></li>
+                    <li><a href="information_2.html" class="ms300">英特尔芯片漏洞震惊全球 上海网信</a></li>
+                    <li><a href="information_2.html" class="ms300">揭秘贾乃亮和李小璐夫妇的商业版图</a></li>
                 </ul>
             </div>
             <div class="inAD"><a href=""><img src="/Uploads/201802/5a72c5e1d07f0.jpg" width="320" height="100" alt=""></a></div>
         </div>
     </div>
-
 </div>
 <div class="w1000">
     <?php

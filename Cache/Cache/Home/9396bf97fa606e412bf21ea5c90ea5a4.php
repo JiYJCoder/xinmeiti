@@ -51,7 +51,7 @@
 		<div class="w1000">
 			<div class="headerNav1">
 				<ul class="clearfix">
-					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="">首页</a></li>
+					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="/">首页</a></li>
 					<?php $n=0;foreach($Categorys as $key=>$r):if($n<99) :if( intval(0)==$r["parentid"] ) :++$n; $arrCount = count(explode(",",$r['arrchildid'])); ?>
 					<li class="<?php if($arrCount>1) : ?>hasChild<?php endif; if($catid == $r[id] || $parentid == $r[id]) : ?>current<?php endif;?>"><a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a></li>
 							<?php
@@ -67,35 +67,56 @@
 	</div>
 </div>
 <?php
- $implist = M('Article')->where('catid=1 and posid=1')->limit(3)->order('createtime')->select(); $rightlist1 = M('Article')->where('catid=1 and posid=2')->limit(10)->order('createtime')->select(); $rightlist2 = M('Article')->where('catid=1 and posid=3')->limit(10)->order('createtime')->select(); $rightlist3 = M('Article')->where('catid=1 and posid=4')->limit(10)->order('createtime')->select(); ?>
+ $implist = M('Article')->where('catid=4 and posid=1')->limit(3)->order('createtime')->select(); $implist1 = M('Article')->where('catid=4 and posid=5')->limit(5)->order('createtime')->select(); $implist2 = M('Article')->where('catid=4 and posid=6')->limit(5)->order('createtime')->select(); $implist3 = M('Article')->where('catid=4 and posid=7')->limit(3)->order('createtime')->select(); $rightlist1 = M('Article')->where('catid=4 and posid=2')->limit(10)->order('createtime')->select(); $rightlist2 = M('Article')->where('catid=4 and posid=3')->limit(10)->order('createtime')->select(); $rightlist3 = M('Article')->where('catid=4 and posid=4')->limit(10)->order('createtime')->select(); $ztname3 = M('Posid')->where('id=7')->getField('name'); ?>
 <div class="contain w1000">
     <div class="articleListTop clearfix">
         <div class="articleListTop_l fl">
-            <div class="zixunTop_lcon">
-                <a href="" class="block"></a>
-                <div class="zixunTop_lpic"><img src="<?php echo ($implist[0]["thumb"]); ?>" width="695" height="350" alt=""></div>
-                <div class="zixunTop_lword">
-                    <div class="zixunTop_ltitle"><?php echo ($implist[0]["title"]); ?></div>
-                    <div class="zixunTop_labout"><?php echo ($implist[0]["description"]); ?></div>
+            <div class="swiper-container caijing-container">
+                <div class="swiper-wrapper">
+                    <?php if(is_array($implist)): $i = 0; $__LIST__ = $implist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><div class="swiper-slide">
+                            <a href="<?php echo ($r["url"]); ?>" class="block"></a>
+                            <div class="caijingTop_lpic"><img src="<?php echo ($r["thumb"]); ?>" width="695" height="350" alt=""></div>
+                            <div class="caijingTop_ltitle"><?php echo ($r["title"]); ?> </div>
+                        </div><?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
-                <div class="zixunTop_type">重要新闻</div>
+            </div>
+            <div class="pagination caijing-pagination"></div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="wenhuaTop_ritem">
+                <div class="wenhuaTop_rcatname"><a href="<?php echo ($implist1[0]["url"]); ?>"><?php echo ($implist1[0]["title"]); ?></a></div>
+                <div class="wenhuaTop_rList">
+                    <ul>
+                        <?php if(is_array($implist1)): $i = 0; $__LIST__ = $implist1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i; if($i!=1) : ?>
+                            <li><a href="<?php echo ($r["url"]); ?>" class="ms300"><?php echo ($r["title"]); ?></a></li>
+                            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="wenhuaTop_ritem wenhuaTop_ritem2">
+                <div class="wenhuaTop_rcatname"><a href="<?php echo ($implist2[0]["url"]); ?>"><?php echo ($implist2[0]["title"]); ?></a></div>
+                <div class="wenhuaTop_rList">
+                    <ul>
+                        <?php if(is_array($implist2)): $i = 0; $__LIST__ = $implist2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i; if($i!=1) : ?>
+                            <li><a href="<?php echo ($r["url"]); ?>" class="ms300"><?php echo ($r["title"]); ?></a></li>
+                            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="articleListTop_r zixunTop_r fr">
-            <div class="zixunTop_rlist">
-                <ul>
-                    <li>
-                        <a href="<?php echo ($implist[1]["url"]); ?>" class="block"></a>
-                        <div class="zixunTop_rpic"><img src="<?php echo ($implist[1]["thumb"]); ?>" width="295" height="170" alt=""></div>
-                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle"><?php echo ($implist[1]["title"]); ?></div></div>
-                        <div class="zixunTop_type">重要新闻</div>
-                    </li>
-                    <li>
-                        <a href="<?php echo ($implist[2]["url"]); ?>" class="block"></a>
-                        <div class="zixunTop_rpic"><img src="<?php echo ($implist[2]["thumb"]); ?>" width="295" height="170" alt=""></div>
-                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle"><?php echo ($implist[2]["title"]); ?></div></div>
-                        <div class="zixunTop_type">重要新闻</div>
-                    </li>
+        <div class="clear"></div>
+        <div class="wenhuaTop_listcon">
+            <div class="wenhuaTop_listcatname"><a href=""><?php echo ($ztname3); ?></a></div>
+            <div class="wenhuaTop_list hoverBox">
+                <ul class="clearfix">
+                    <?php if(is_array($implist3)): $i = 0; $__LIST__ = $implist3;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li>
+                            <a href="<?php echo ($r["url"]); ?>" class="block"></a>
+                            <div class="wenhuaTop_listpic"><img src="<?php echo ($r["thumb"]); ?>" alt=""></div>
+                            <div class="wenhuaTop_listword">
+                                <div class="wenhuaTop_listtitle ms300"><?php echo ($r["title"]); ?></div>
+                                <div class="wenhuaTop_listabout"><?php echo ($r["description"]); ?></div>
+                            </div>
+                        </li><?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>
             </div>
         </div>
@@ -106,7 +127,7 @@
                 <ul id="ajax_list_ul">
                     <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li>
                             <div class="articleList_lBox">
-                                <a href="<?php echo ($r["url"]); ?>" class="block"></a>
+                                <a href="" class="block"></a>
                                 <div class="articleList_lpic"><img src="<?php echo ($r["thumb"]); ?>" width="220" height="130" alt=""></div>
                                 <div class="articleList_lword">
                                     <div class="articleList_ltitle ms300"><?php echo ($r["title"]); ?></div>
@@ -134,7 +155,7 @@
         </div>
         <div class="articleList_r fr">
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">精品文章</a></div>
+                <div class="articleList_rcatname"><a href="">文艺评论</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <?php if(is_array($rightlist1)): $i = 0; $__LIST__ = $rightlist1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li class="<?php if($i==1) : ?>articleList_rli1<?php endif;?>">
@@ -149,9 +170,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="inAD"><a href=""><img src="/Uploads/201802/5a72ee6dc0a08.jpg" alt=""></a></div>
+            <div class="inAD"><a href=""><img src="/Uploads/201802/5a7bb8009d9e0.jpg" alt=""></a></div>
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">热门文章</a></div>
+                <div class="articleList_rcatname"><a href="">名家访谈</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <?php if(is_array($rightlist2)): $i = 0; $__LIST__ = $rightlist2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li class="<?php if($i==1) : ?>articleList_rli1<?php endif;?>">
@@ -167,7 +188,7 @@
                 </div>
             </div>
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">排行榜</a></div>
+                <div class="articleList_rcatname"><a href="">文化新知</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <?php if(is_array($rightlist3)): $i = 0; $__LIST__ = $rightlist3;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li class="<?php if($i==1) : ?>articleList_rli1<?php endif;?>">
@@ -185,6 +206,14 @@
         </div>
     </div>
 </div>
+<script>
+    var caijingSwiper = new Swiper('.caijing-container',{
+        pagination: '.caijing-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+</script>
 <div class="w1000">
     <?php
  $typelink = M('Type')->where('parentid = 1')->select(); $link = array(); foreach($typelink as $val){ $link[] = M('Link')->where('typeid='.$val['typeid'])->select(); } ?>

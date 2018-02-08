@@ -51,7 +51,7 @@
 		<div class="w1000">
 			<div class="headerNav1">
 				<ul class="clearfix">
-					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="">首页</a></li>
+					<li class="<?php if(MODULE_NAME == 'Index') : ?>on<?php endif;?>"><a href="/">首页</a></li>
 					<?php $n=0;foreach($Categorys as $key=>$r):if($n<99) :if( intval(0)==$r["parentid"] ) :++$n; $arrCount = count(explode(",",$r['arrchildid'])); ?>
 					<li class="<?php if($arrCount>1) : ?>hasChild<?php endif; if($catid == $r[id] || $parentid == $r[id]) : ?>current<?php endif;?>"><a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a></li>
 							<?php
@@ -291,6 +291,9 @@
                             $('#china li').eq(i).find('.three').addClass('col-r');
                         }
                     }
+                    if(type ==2){
+
+                    }
                 }
                 $('.caijingTop_rList ul li .caijingTop_rListpic').eq(0).show();
 
@@ -324,6 +327,7 @@
             }});
     }
     stock("s_sh000001,s_sz399001,s_sh000300,s_sz399415,s_sz399006",1);    //上证指数,深圳,I100,创业板
+    stock("gb_dji,gb_ixic,gb_inx",2);    //道琼斯,纳斯达克,标普指数
 //    stock("int_dji",1)   //道琼斯
 //    stock("int_nasdaq",1)   //纳斯达克
 //    stock("gb_inx",2)   //标普指数

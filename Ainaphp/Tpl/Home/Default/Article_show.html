@@ -1,1 +1,81 @@
-
+<?php
+    $tj1 = M('Article')->where('catid='.$catid.' and posid='.$posid)->limit(10)->select();
+    $tj2 = M('Article')->where('catid='.$catid)->order('hits')->limit(4)->select();
+?>
+<div class="contain w1000">
+    <div class="article clearfix">
+        <div class="article_l fl">
+            <div class="article_lcon">
+                <div class="article_ltitle">{$title}</div>
+                <div class="article_mess"><span>时间：<?php echo date('Y-m-d',$createtime) ?></span></div>
+                <div class="article_word">
+                    {$content}
+                </div>
+                <div class="article_operate clearfix">
+                    <div class="article_writer fl">负责编辑：{$username}</div>
+                    <div class="article_share fr">
+                        <span>分享到：</span>
+                        <div class="bdsharebuttonbox">
+                            <a href="#" id="bds_qzone" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="#" id="bds_sqq" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                            <a href="#" id="bds_tsina" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a href="#" id="bds_weixin" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article_pos">
+                <div class="article_posTitle"><span>为你推荐</span></div>
+                <div class="articleList_lcon hoverBox">
+                    <ul>
+                        <volist name="tj2" id="r">
+                            <li>
+                                <div class="articleList_lBox">
+                                    <a href="{$r.url}" class="block"></a>
+                                    <div class="articleList_lpic"><img src="{$r.thumb}" width="220" height="130" alt=""></div>
+                                    <div class="articleList_lword">
+                                        <div class="articleList_ltitle ms300">{$r.title}</div>
+                                        <div class="articleList_labout">{$r.description}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear" style="height: 106px;"></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">精品推荐</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                         <volist name="tj1" id="r">
+                             <li class="articleList_rli1">
+                                 <a href="{$r.url}" class="block"></a>
+                                 <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                 <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                             </li>
+                         </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="/dist/pc/images/in56.jpg" alt=""></a></div>
+        </div>
+    </div>
+</div>
+<script>
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{},
+            "bdText":"",
+            "bdMini":"1",
+            "bdMiniList":[],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"24"
+        },
+        "share":{}
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>

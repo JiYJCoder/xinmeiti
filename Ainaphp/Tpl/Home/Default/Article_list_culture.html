@@ -1,37 +1,70 @@
 <?php
-   $implist = M('Article')->where('catid=1 and posid=1')->limit(3)->order('createtime')->select();
-   $rightlist1 = M('Article')->where('catid=1 and posid=2')->limit(10)->order('createtime')->select();
-   $rightlist2 = M('Article')->where('catid=1 and posid=3')->limit(10)->order('createtime')->select();
-   $rightlist3 = M('Article')->where('catid=1 and posid=4')->limit(10)->order('createtime')->select();
+   $implist = M('Article')->where('catid=4 and posid=1')->limit(3)->order('createtime')->select();
+   $implist1 = M('Article')->where('catid=4 and posid=5')->limit(5)->order('createtime')->select();
+   $implist2 = M('Article')->where('catid=4 and posid=6')->limit(5)->order('createtime')->select();
+   $implist3 = M('Article')->where('catid=4 and posid=7')->limit(3)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=4 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=4 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=4 and posid=4')->limit(10)->order('createtime')->select();
+    $ztname3 =  M('Posid')->where('id=7')->getField('name');
 ?>
 <div class="contain w1000">
     <div class="articleListTop clearfix">
         <div class="articleListTop_l fl">
-            <div class="zixunTop_lcon">
-                <a href="" class="block"></a>
-                <div class="zixunTop_lpic"><img src="{$implist[0].thumb}" width="695" height="350" alt=""></div>
-                <div class="zixunTop_lword">
-                    <div class="zixunTop_ltitle">{$implist[0].title}</div>
-                    <div class="zixunTop_labout">{$implist[0].description}</div>
+            <div class="swiper-container caijing-container">
+                <div class="swiper-wrapper">
+                    <volist name="implist" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="caijingTop_lpic"><img src="{$r.thumb}" width="695" height="350" alt=""></div>
+                            <div class="caijingTop_ltitle">{$r.title} </div>
+                        </div>
+                    </volist>
                 </div>
-                <div class="zixunTop_type">重要新闻</div>
+            </div>
+            <div class="pagination caijing-pagination"></div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="wenhuaTop_ritem">
+                <div class="wenhuaTop_rcatname"><a href="{$implist1[0].url}">{$implist1[0].title}</a></div>
+                <div class="wenhuaTop_rList">
+                    <ul>
+                        <volist name="implist1" id="r">
+                            {if $i!=1}
+                            <li><a href="{$r.url}" class="ms300">{$r.title}</a></li>
+                            {/if}
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="wenhuaTop_ritem wenhuaTop_ritem2">
+                <div class="wenhuaTop_rcatname"><a href="{$implist2[0].url}">{$implist2[0].title}</a></div>
+                <div class="wenhuaTop_rList">
+                    <ul>
+                        <volist name="implist2" id="r">
+                            {if $i!=1}
+                            <li><a href="{$r.url}" class="ms300">{$r.title}</a></li>
+                            {/if}
+                        </volist>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="articleListTop_r zixunTop_r fr">
-            <div class="zixunTop_rlist">
-                <ul>
-                    <li>
-                        <a href="{$implist[1].url}" class="block"></a>
-                        <div class="zixunTop_rpic"><img src="{$implist[1].thumb}" width="295" height="170" alt=""></div>
-                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle">{$implist[1].title}</div></div>
-                        <div class="zixunTop_type">重要新闻</div>
-                    </li>
-                    <li>
-                        <a href="{$implist[2].url}" class="block"></a>
-                        <div class="zixunTop_rpic"><img src="{$implist[2].thumb}" width="295" height="170" alt=""></div>
-                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle">{$implist[2].title}</div></div>
-                        <div class="zixunTop_type">重要新闻</div>
-                    </li>
+        <div class="clear"></div>
+        <div class="wenhuaTop_listcon">
+            <div class="wenhuaTop_listcatname"><a href="">{$ztname3}</a></div>
+            <div class="wenhuaTop_list hoverBox">
+                <ul class="clearfix">
+                    <volist name="implist3" id="r">
+                        <li>
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="wenhuaTop_listpic"><img src="{$r.thumb}" alt=""></div>
+                            <div class="wenhuaTop_listword">
+                                <div class="wenhuaTop_listtitle ms300">{$r.title}</div>
+                                <div class="wenhuaTop_listabout">{$r.description}</div>
+                            </div>
+                        </li>
+                    </volist>
                 </ul>
             </div>
         </div>
@@ -43,7 +76,7 @@
                     <volist name="list" id="r">
                         <li>
                             <div class="articleList_lBox">
-                                <a href="{$r.url}" class="block"></a>
+                                <a href="" class="block"></a>
                                 <div class="articleList_lpic"><img src="{$r.thumb}" width="220" height="130" alt=""></div>
                                 <div class="articleList_lword">
                                     <div class="articleList_ltitle ms300">{$r.title}</div>
@@ -72,7 +105,7 @@
         </div>
         <div class="articleList_r fr">
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">精品文章</a></div>
+                <div class="articleList_rcatname"><a href="">文艺评论</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <volist name="rightlist1" id="r">
@@ -89,9 +122,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="inAD"><a href=""><img src="<YP:block pos='informationAdv' type='image' />" alt=""></a></div>
+            <div class="inAD"><a href=""><img src="<YP:block pos='cultrueAdv' type='image' />" alt=""></a></div>
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">热门文章</a></div>
+                <div class="articleList_rcatname"><a href="">名家访谈</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <volist name="rightlist2" id="r">
@@ -109,7 +142,7 @@
                 </div>
             </div>
             <div class="articleList_rbox">
-                <div class="articleList_rcatname"><a href="">排行榜</a></div>
+                <div class="articleList_rcatname"><a href="">文化新知</a></div>
                 <div class="articleList_ritem hoverBox">
                     <ul>
                         <volist name="rightlist3" id="r">
@@ -129,3 +162,11 @@
         </div>
     </div>
 </div>
+<script>
+    var caijingSwiper = new Swiper('.caijing-container',{
+        pagination: '.caijing-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+</script>

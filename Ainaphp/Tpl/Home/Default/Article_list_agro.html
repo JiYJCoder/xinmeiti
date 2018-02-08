@@ -1,0 +1,134 @@
+<?php
+   $implist = M('Article')->where('catid=9 and posid=1')->limit(3)->order('createtime')->select();
+   $implist1 = M('Article')->where('catid=9 and posid=13')->limit(10)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=9 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=9 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=9 and posid=4')->limit(10)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="articleListTop clearfix">
+        <div class="articleListTop_l fl">
+            <div class="swiper-container yuqing-container">
+                <div class="swiper-wrapper">
+                    <volist name="implist" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="yuqingTop_lpic"><img src="{$r.thumb}" width="695" height="350" alt=""></div>
+                            <div class="yuqingTop_ltitle">{$r.title}</div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="pagination yuqing-pagination"></div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="yuqingTop_ritem">
+                <div class="yuqingTop_rcatname"><a href="">农资动态</a></div>
+                <div class="yuqingTop_rList">
+                    <ul>
+                        <volist name="implist1" id="r">
+                            <li><a href="{$r.url}" class="ms300">{$r.title}</a></li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="articleList clearfix">
+        <div class="articleList_l fl">
+            <div class="articleList_lcon hoverBox">
+                <ul id="ajax_list_ul">
+                    <volist name="list" id="r">
+                        <li>
+                            <div class="nongyeList_lBox">
+                                <a href="{$r.url}" class="block"></a>
+                                <div class="nongyeList_ltitle ms300">{$r.title}</div>
+                                <div class="nongyeList_labout">{$r.description}</div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            {if $pages}
+            <div class="ajax-page">
+                <div class="ajax_tips">
+                    加载中....
+                </div>
+                <div class="ajaxpage">
+                    {$pages}
+                </div>
+                <div class="fixedloading">
+                    <div class="loader"></div>
+                </div>
+                <div class="fixedloadingbg"></div>
+            </div>
+            {/if}
+            <div class="articleList_lload"><a href="javaScript:void(0);">加载更多+</a></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">三农微评</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist1" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="<YP:block pos='agroAdv' type='image' />" alt=""></a></div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">美丽乡村</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist2" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">各地农业</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist3" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var yuqingSwiper = new Swiper('.yuqing-container',{
+        pagination: '.yuqing-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+</script>

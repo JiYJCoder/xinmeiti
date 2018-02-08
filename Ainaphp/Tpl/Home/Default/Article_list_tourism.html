@@ -1,0 +1,151 @@
+<?php
+   $implist = M('Article')->where('catid=7 and posid=1')->limit(3)->order('createtime')->select();
+   $implist1 = M('Article')->where('catid=7 and posid=12')->limit(2)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=7 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=7 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=7 and posid=4')->limit(10)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="articleListTop lvyouTop clearfix">
+        <div class="articleListTop_l fl">
+            <a class="lvyou-left" href="#"></a>
+            <a class="lvyou-right" href="#"></a>
+            <div class="swiper-container shishang-container">
+                <div class="swiper-wrapper">
+                    <volist name="implist" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="shishangTop_lpic"><img src="{$r.thumb}" width="695" height="350" alt=""></div>
+                            <div class="shishangTop_ltitle">{$r.title}</div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="lvyouTop_rlist hoverBox">
+                <ul>
+                    <volist name="implist1" id="r">
+                        <li>
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="lvyouTop_rpic"><img src="{$r.thumb}" width="280" height="170" alt=""></div>
+                            <div class="lvyouTop_rtitle ms300">{$r.title}</div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="articleList clearfix">
+        <div class="lvyouList_title"><span>旅游热点</span></div>
+        <div class="articleList_l fl">
+            <div class="articleList_lcon hoverBox">
+                <ul id="ajax_list_ul">
+                    <volist name="list" id="r">
+                        <li>
+                            <div class="lvyouList_lBox">
+                                <a href="" class="block"></a>
+                                <div class="lvyouList_ltitle ms300">{$r.title}</div>
+                                <div class="lvyouList_lpics">
+                                    <dl class="clearfix">
+                                        <dd><img src="/dist/pc/images/in106.jpg" width="220" height="140" alt=""></dd>
+                                        <dd><img src="/dist/pc/images/in107.jpg" width="220" height="140" alt=""></dd>
+                                        <dd><img src="/dist/pc/images/in108.jpg" width="220" height="140" alt=""></dd>
+                                    </dl>
+                                </div>
+                                <div class="lvyouList_ltime"><?php echo date('Y-m-d H:i',$r['createtime']) ?></div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            {if $pages}
+            <div class="ajax-page">
+                <div class="ajax_tips">
+                    加载中....
+                </div>
+                <div class="ajaxpage">
+                    {$pages}
+                </div>
+                <div class="fixedloading">
+                    <div class="loader"></div>
+                </div>
+                <div class="fixedloadingbg"></div>
+            </div>
+            {/if}
+            <div class="articleList_lload"><a href="javaScript:void(0);">加载更多+</a></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">旅游攻略</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist1" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="<YP:block pos='tourismAdv' type='image' />" alt=""></a></div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">休闲美食</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist2" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">特别策划</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist3" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var shishangSwiper = new Swiper('.shishang-container',{
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    })
+    $('.lvyou-left').on('click', function(e){
+        e.preventDefault()
+        shishangSwiper.swipePrev()
+    })
+    $('.lvyou-right').on('click', function(e){
+        e.preventDefault()
+        shishangSwiper.swipeNext()
+    })
+</script>

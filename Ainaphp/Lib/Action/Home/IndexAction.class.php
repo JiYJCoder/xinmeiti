@@ -12,6 +12,7 @@ class IndexAction extends BaseAction
 		$this->assign('bcid',0);//顶级栏目
 		$this->assign('ishome','home');
         $this->display();
+
     }
 
 	function message(){
