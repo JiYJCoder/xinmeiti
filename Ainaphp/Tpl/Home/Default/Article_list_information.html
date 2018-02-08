@@ -1,0 +1,131 @@
+<?php
+   $implist = M('Article')->where('catid=1 and posid=1')->limit(3)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=1 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=1 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=1 and posid=4')->limit(10)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="articleListTop clearfix">
+        <div class="articleListTop_l fl">
+            <div class="zixunTop_lcon">
+                <a href="" class="block"></a>
+                <div class="zixunTop_lpic"><img src="{$implist[0].thumb}" width="695" height="350" alt=""></div>
+                <div class="zixunTop_lword">
+                    <div class="zixunTop_ltitle">{$implist[0].title}</div>
+                    <div class="zixunTop_labout">{$implist[0].description}</div>
+                </div>
+                <div class="zixunTop_type">重要新闻</div>
+            </div>
+        </div>
+        <div class="articleListTop_r zixunTop_r fr">
+            <div class="zixunTop_rlist">
+                <ul>
+                    <li>
+                        <a href="{$implist[1].url}" class="block"></a>
+                        <div class="zixunTop_rpic"><img src="{$implist[1].thumb}" width="295" height="170" alt=""></div>
+                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle">{$implist[1].title}</div></div>
+                        <div class="zixunTop_type">重要新闻</div>
+                    </li>
+                    <li>
+                        <a href="{$implist[2].url}" class="block"></a>
+                        <div class="zixunTop_rpic"><img src="{$implist[2].thumb}" width="295" height="170" alt=""></div>
+                        <div class="zixunTop_rtitleW"><div class="zixunTop_rtitle">{$implist[2].title}</div></div>
+                        <div class="zixunTop_type">重要新闻</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="articleList clearfix">
+        <div class="articleList_l fl">
+            <div class="articleList_lcon hoverBox">
+                <ul id="ajax_list_ul">
+                    <volist name="list" id="r">
+                        <li>
+                            <div class="articleList_lBox">
+                                <a href="{$r.url}" class="block"></a>
+                                <div class="articleList_lpic"><img src="{$r.thumb}" width="220" height="130" alt=""></div>
+                                <div class="articleList_lword">
+                                    <div class="articleList_ltitle ms300">{$r.title}</div>
+                                    <div class="articleList_labout">{$r.description}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            {if $pages}
+            <div class="ajax-page">
+                <div class="ajax_tips">
+                    加载中....
+                </div>
+                <div class="ajaxpage">
+                    {$pages}
+                </div>
+                <div class="fixedloading">
+                    <div class="loader"></div>
+                </div>
+                <div class="fixedloadingbg"></div>
+            </div>
+            {/if}
+            <div class="articleList_lload"><a href="javaScript:void(0);">加载更多+</a></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">精品文章</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist1" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="<YP:block pos='informationAdv' type='image' />" alt=""></a></div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">热门文章</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist2" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">排行榜</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist3" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

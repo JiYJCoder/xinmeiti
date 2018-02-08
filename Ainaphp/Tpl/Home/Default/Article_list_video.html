@@ -1,0 +1,84 @@
+<?php
+   $implist = M('Article')->where('catid=3 and posid=1')->limit(4)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=3 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=3 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=3 and posid=4')->limit(10)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="shipinTop clearfix">
+        <div class="articleListTop_l fl">
+            <div class="shipinTop_lcon">
+                <div class="shipinTop_ltitle">{$implist[0].title}</div>
+                <iframe height=350 width=695 src='{$$implist[0].content}http://player.youku.com/embed/XMzMyMzE1OTE0NA==' frameborder=0 'allowfullscreen'></iframe>
+            </div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="shipinTop_rcatname"><a href="">今日热点</a></div>
+            <div class="shipinTop_rlist hoverBox">
+                <ul>
+                    <volist name="implist" id="r">
+                        {if $i!=1}
+                        <li>
+                            <a href="" class="block"></a>
+                            <div class="shipinTop_rpic"><img src="{$r.thumb}" width="160" height="100" alt=""></div>
+                            <div class="shipinTop_rword">
+                                <div class="shipinTop_rtitle ms300">{$r.title}</div>
+                                <div class="shipinTop_rtime">2018-01-11 05:00</div>
+                            </div>
+                            <span class="shipingo"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
+                        </li>
+                        {/if}
+
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="shipinList_item">
+        <div class="shipinList_catname"><a href="">新闻推荐</a></div>
+        <div class="shipinList hoverBox">
+            <ul class="clearfix">
+                <volist name="rightlist1" id="r">
+                    <li>
+                        <a href="javascript:void(0)" class="block"></a>
+                        <div class="shipinList_pic"><img src="{$r.thumb}" width="185" height="115" alt=""></div>
+                        <div class="shipinList_title ms300">{$r.title}</div>
+                        <span class="shipingo1"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <div class="shipinAD"><a href=""><img src="images/in121.jpg" width="1000" height="80" alt=""></a></div>
+    <div class="shipinList_item">
+        <div class="shipinList_catname"><a href="">新闻列表</a></div>
+        <div class="shipinList hoverBox">
+            <ul class="clearfix">
+                <volist name="rightlist2" id="r">
+                    <li>
+                        <a href="javascript:void(0)" class="block"></a>
+                        <div class="shipinList_pic"><img src="{$r.thumb}" width="185" height="115" alt=""></div>
+                        <div class="shipinList_title ms300">{$r.title}</div>
+                        <span class="shipingo1"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <div class="shipinAD"><a href=""><img src="<YP:block pos='videoAdv' type='image' />" width="1000" height="80" alt=""></a></div>
+    <div class="shipinList_item">
+        <div class="shipinList_catname"><a href="">热播榜</a></div>
+        <div class="shipinList hoverBox">
+            <ul class="clearfix">
+                <volist name="rightlist3" id="r">
+                    <li>
+                        <a href="javascript:void(0)" class="block"></a>
+                        <div class="shipinList_pic"><img src="{$r.thumb}" width="185" height="115" alt=""></div>
+                        <div class="shipinList_title ms300">{$r.title}</div>
+                        <span class="shipingo1"><img src="/dist/pc/images/in19.png" width="38" height="38" alt=""></span>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>

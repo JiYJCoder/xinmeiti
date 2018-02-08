@@ -1,0 +1,1 @@
+<?php	return array ( 'Page' => '1', 'Article' => '2', 'Link' => '3', );?>

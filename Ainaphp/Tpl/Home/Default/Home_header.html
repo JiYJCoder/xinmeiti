@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>{if MODULE_NAME != 'Index'}{$seo_title}-{/if}{$site_name}</title>
+	<link href="/dist/pc/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="/dist/pc/swiper/idangerous.swiper.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/dist/pc/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/dist/pc/js/ainatec.js"></script>
+	<script src="/dist/pc/js/ajax.js" type="text/javascript"></script>
+	<script src="/dist/pc/swiper/idangerous.swiper.min.js" type="text/javascript"></script>
+	<!--[if lte IE 6]>
+	<script src="/dist/pc/js/png.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		DD_belatedPNG.fix('.png');
+	</script>
+	<![endif]-->
+</head>
+<body>
+<div class="header">
+	<div class="headerTop_w">
+		<div class="w1000 clearfix">
+			<div class="headerWelcome fl"><YP:block pos="index_welcome" type="text" /></div>
+			<div class="headerTop_r fr">
+				<ul class="clearfix">
+					<!--<li><a href="">设为首页</a></li><span>|</span>-->
+					<!--<li><a href="">手机版</a></li><span>|</span>-->
+					<li><a href="">网站地图</a></li><span>|</span>
+					<li><a href="" class="headerCity">切换城市</a></li><span>|</span>
+					<li><a href="">新闻热线：<YP:block pos="index_tel" type="text" /></a></li><span>|</span>
+					<li><a href="">投稿邮箱：<YP:block pos="index_email" type="text" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="headerCon_w">
+		<div class="w1000">
+			<div class="headerPic"><img src="<YP:block pos='index_ban' type='image' />" alt=""></div>
+			<div class="headerCon clearfix">
+				<div class="headerLogo fl"><img src="<YP:block pos='logo' type='image' />" alt=""></div>
+				<div class="headerSearch fr">
+					<div class="headerSearch_box"><input type="text" placeholder="徐若父亲病逝"></div>
+					<div class="headerSearch_btn"><input type="submit" value=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="headerNav1_w">
+		<div class="w1000">
+			<div class="headerNav1">
+				<ul class="clearfix">
+					<li class="{if MODULE_NAME == 'Index'}on{/if}"><a href="">首页</a></li>
+					<YP:subcat catid="0" id="r" key="n">
+					<?php
+						$arrCount  = count(explode(",",$r['arrchildid']));
+					 ?>
+					<li class="{if $arrCount>1}hasChild{/if}{if $catid == $r[id] || $parentid == $r[id]}current{/if}"><a href="{$r.url}">{$r.catname}</a></li>
+							<?php
+							if($arrCount>1) {
+								$childStr .= '<div class="headerNav2"><ul class="clearfix">';
+
+								$childRs  = M('category')->where('parentid = '.$r[id])->select();
+								foreach($childRs as $val){
+							 		$childStr .= '<li><a href='.$val[url].'>'.$val['catname'].'</a></li>';
+								}
+								$childStr .= '</ul></div>';
+							}
+							?>
+					</YP:subcat>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="headerNav2_w">
+		<div class="w1000">
+			{$childStr}
+		</div>
+	</div>
+</div>

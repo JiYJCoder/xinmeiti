@@ -1,0 +1,1 @@
+<?php	return array ( 'information' => '1', 'finance' => '2', 'video' => '3', 'culture' => '4', 'art' => '5', 'fashion' => '6', 'tourism' => '7', 'Live' => '8', 'agro' => '9', 'public' => '10', 'ceshi' => '11', 'a' => '12', );?>

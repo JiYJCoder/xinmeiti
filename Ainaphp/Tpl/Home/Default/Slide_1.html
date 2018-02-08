@@ -1,0 +1,7 @@
+{loop}
+<li {if $key!=0}class="dn"{/if}><a href="{$r.link}" title="{$r.title}"><img src="{$r.pic}" alt="" /></a></li>
+{/loop}
+{loop}
+<?php $n = $key+1?>
+<span {if $key==0}class="on"{/if}>{$n}</span>
+{/loop}

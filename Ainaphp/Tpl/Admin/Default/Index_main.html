@@ -1,0 +1,82 @@
+
+<script>
+if(self==top){
+	window.top.location.href = '{:U("Login/index")}';
+}
+
+function menutype(leftmenuid){
+    $(window.parent.$("#leftMenu ul li").removeClass("on"));
+    $(window.parent.$("#li_"+leftmenuid).addClass("on"));
+    $(window.parent.$("#li_"+leftmenuid).parents("dl").siblings().removeClass("on"));
+    $(window.parent.$("#li_"+leftmenuid).parents("dl").addClass("on"));
+    $(window.parent.$("#li_"+leftmenuid).parents("dl").siblings().find("dd").slideUp(300));
+    $(window.parent.$("#li_"+leftmenuid).parents("dd").slideDown(300));
+}
+</script>
+<literal>
+<style>
+
+.mainnav_title{ display:none;}
+h1 { height:30px;line-height:30px;font-size:14px; margin-bottom: 10px; overflow:hidden;zoom:1;}
+h1 b {font-size: 16px;color:#E26A6A ;}
+h1 span {color:#ccc;font-size:10px;margin-left:10px; font-weight: normal;}
+.mainBox{padding: 20px 10px;}
+.listBox{padding:12px 20px 15px 20px; margin-bottom: 25px; border-radius: 3px; overflow: hidden; box-shadow:0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.22);}
+.listBox ul li {width: 50%; float: left; margin-bottom: 15px;}
+.listBox ul li span{ display:block; float:left; color:#777;width:100px;}
+.listItem{padding: 10px 15px; margin-right: 20px; border: 1px solid #ddd; border-radius: 4px;}
+
+#tabs {margin:0px auto;overflow:hidden;border:1px solid #ccc; height:214px;}
+#tabs .title {overflow:hidden;background:url(./Public/Images/tab_bottom_line_1.jpg) repeat-x 0 26px;height:27px;}
+#tabs .title ul li {float:left;margin-left:-1px;height:26px;line-height:26px;background:#EAEEF4;padding:0px 10px;border:1px solid #ccc;border-top:0;border-bottom:0;}
+#tabs .title ul li.on {background:#FFF;height:27px;}
+#tabs .content_1 { overflow:hidden;border-top:none;}
+#tabs .tabbox {display:none;padding:10px;}
+
+#tabs .tabbox ul li {background:url(./Public/Images/ico_1.gif) no-repeat 4px 11px;padding-left:13px;border-bottom:1px #ddd dashed; height:27px;  line-height:26px;color:#333 }
+#tabs .tabbox ul li a {color:#333}
+#tabs .tabbox ul li a:hover {color:#FB0000;}
+#tabs .tabbox ul li span.date {float:right;color:#777}
+.linkBtn{margin: 15px 0 5px 0;}
+.linkBtn ul li{width: 20%; float: left; text-align: center;}
+.linkBtn ul li a{display: block; margin: 0 10px; padding: 20px 0; border-radius: 2px; overflow: hidden; font-size: 14px; color: #fff;}
+.linkBtn ul li.li1 a{background-color: #89C4F4;}
+.linkBtn ul li.li2 a{background-color: #E35B5A;}
+.linkBtn ul li.li3 a{background-color: #44B6AE;}
+.linkBtn ul li.li4 a{background-color: #8775A7;}
+.linkBtn ul li.li5 a{background-color: #578ebe;}
+.linkBtn ul li a:hover{opacity: .9;}
+</style>
+</literal>
+
+<div class="linkBtn">
+    <ul class="clearfix">
+        <li class="li1" data-id="84"><a href="javascript:;" data-href="?g=Admin&m=Config&a=index&menuid=84" onclick="menutype('84'); window.parent.iframeValue(this);  return false;">站点配置</a></li>
+        <li class="li2" data-id="17"><a href="javascript:;" data-href="?g=Admin&m=Category&a=index&menuid=17" onclick="menutype('17'); window.parent.iframeValue(this); return false;">栏目管理</a></li>
+        <li class="li3" data-id="74"><a href="javascript:;" data-href="?g=Admin&m=Block&a=index&menuid=74" onclick="menutype('74'); window.parent.iframeValue(this); return false;">碎片管理</a></li>
+        <li class="li4" data-id="77"><a href="javascript:;" data-href="?g=Admin&m=Slide&a=index&menuid=77" onclick="menutype('77'); window.parent.iframeValue(this); return false;">幻灯片管理</a></li>
+        <li class="li5" data-id="53"><a href="javascript:;" data-href="?g=Admin&m=Link&a=index&menuid=53" onclick="menutype('53'); window.parent.iframeValue(this); return false;">友情链接</a></li>
+    </ul>
+</div>
+<div class="mainBox">
+	<div id="Profile" class="listBox">
+		<h1><b>{:L(Profile_info)}</b><span>Profile&nbsp; Info</span></h1>
+		<ul>
+		<volist name="userinfo" id="v">
+		<li><div class="listItem"><span>{:L($key)} :</span>{$v}</div></li>
+		</volist>
+		</ul>
+	</div>
+    <div id="sitestats" class="listBox">
+		<h1><b>{:L(Site_Stats)}</b><span>Site&nbsp; Stats</span></h1>
+		<ul>
+		<volist name="moduledata" id="v">
+		<li><div class="listItem"><span>{$v[title]} :</span>{$v[counts]}</div></li>
+		</volist>
+		</ul>
+	</div>
+</div>
+
+
+
+

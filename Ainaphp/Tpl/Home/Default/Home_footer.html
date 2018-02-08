@@ -1,0 +1,65 @@
+<div class="w1000">
+    <?php
+              $typelink = M('Type')->where('parentid = 1')->select();
+    $link = array();
+    foreach($typelink as $val){
+    $link[] =  M('Link')->where('typeid='.$val['typeid'])->select();
+    }
+    ?>
+    <div class="inItem7">
+        <div class="inItem7_top">
+            <h3 class="inItem7_title">友情链接</h3>
+            <div class="inItem7_nav">
+                <ul class="clearfix">
+                    <volist name="typelink" id="r">
+                        <li class="{if $i==1}on{/if}">{$r.name}</li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="inItem7_con">
+            <volist name="link" id="r">
+                <div class="inItem7_conList" {if $i==1}style='display:block;'{/if}>
+                    <ul class="clearfix">
+                        <volist name="r" id="rr">
+                            <li><a href="{$rr.siteurl}">{$rr.name}</a></li>
+                        </volist>
+                    </ul>
+                </div>
+            </volist>
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <div class="w1000">
+        <div class="footerNav">
+            <ul class="clearfix">
+                <YP:subcat catid="0" id="r" key="n">
+                    <?php
+						$arrCount  = count(explode(",",$r['arrchildid']));
+					 ?>
+                    <li class="{if $arrCount>1}hasChild{/if}{if $catid == $r[id] || $parentid == $r[id]}current{/if}"><a href="{$r.url}">{$r.catname}</a></li>
+                </YP:subcat>
+            </ul>
+        </div>
+        <div class="footerNav2">
+            <a href="">协会介绍</a>|
+            <a href="">关于我们</a>|
+            <a href="">联系我们</a>|
+            <a href="">招聘英才</a>|
+            <a href="">人员查询</a>|
+            <a href="">投稿来信</a>|
+            <a href="">网站声明</a>
+        </div>
+        <div class="footerContact">投稿邮箱：<YP:block pos="index_email" type="text" />  总监电话：<YP:block pos="index_mobile" type="text" /></div>
+        <div class="footerBeian"><YP:block pos="index_text1" type="text" /></div>
+        <div class="footerpic"><img src="/dist/pc/images/in37.jpg" alt=""></div>
+    </div>
+</div>
+<div class="aiderBox">
+    <div class="ewm"><img src="<YP:block pos='index_code' type='image' />" width="60" height="60" alt=""></div>
+    <div class="goTop"><img src="/dist/pc/images/in38.png" alt=""></div>
+</div>
+</body>
+</html>

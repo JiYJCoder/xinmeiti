@@ -1,0 +1,36 @@
+<form method='post'  id="form1" action="{:U('Config/dosite')}">
+<table width="100%"  cellpadding=0 cellspacing=0  class="table_form"> 
+  <tr>
+    <th width="120">剩余条数</th> 
+    <td class="y-bg">{:sy_sns()}</td>
+  </tr> 
+	  <tr> 
+	    <th>短信帐户</th>
+	    <td class="y-bg"><input type="text" class="input-text" name="sns_user" id="sns_user" size="30" value="{$sns_user}"/></td> 
+	  </tr> 
+	  <tr> 
+	    <th>短信密码</th> 
+	    <td class="y-bg"><input type="password" class="input-text" name="sns_password" id="sns_password" size="30" value="{$sns_password}"/></td> 
+	  </tr>
+	  <tr> 
+	    <th>短信内容</th> 
+	    <td class="y-bg"><input type="text" class="input-text" name="sns_content" id="sns_content" size="60" value="{$sns_content}"/></td> 
+	  </tr>
+  <tr> 
+    <th>短信测试</th> 
+    <td class="y-bg"><input type="text" class="input-text" name="sns_to" id="sns_to" size="30" value=""/> <input type="button" class="button" onClick="javascript:test_sns();" value="{:L('config_mail_testsed')}"></td> 
+  </tr>           
+  </table> 
+<div class="btn">
+<INPUT TYPE="submit"  value="{:L('save')}" class="button" >
+<input TYPE="reset"  value="{:L('reset')}" class="button">
+</div>
+</form>
+</div>
+<script>
+function test_sns(){
+    $.post('{:U("Config/testsns")}&sns_to='+$('#sns_to').val(), function(data){
+	alert(data.info);
+	},"json");
+}
+</script>

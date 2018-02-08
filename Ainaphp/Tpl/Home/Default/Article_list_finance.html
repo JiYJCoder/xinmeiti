@@ -1,0 +1,282 @@
+<?php
+   $implist = M('Article')->where('catid=2 and posid=1')->limit(3)->order('createtime')->select();
+   $rightlist1 = M('Article')->where('catid=2 and posid=2')->limit(10)->order('createtime')->select();
+   $rightlist2 = M('Article')->where('catid=2 and posid=3')->limit(10)->order('createtime')->select();
+   $rightlist3 = M('Article')->where('catid=2 and posid=4')->limit(10)->order('createtime')->select();
+?>
+<div class="contain w1000">
+    <div class="articleListTop clearfix">
+        <div class="articleListTop_l fl">
+            <div class="swiper-container caijing-container">
+                <div class="swiper-wrapper">
+                    <volist name="implist" id="r">
+                        <div class="swiper-slide">
+                            <a href="{$r.url}" class="block"></a>
+                            <div class="caijingTop_lpic"><img src="{$r.thumb}" width="695" height="350" alt=""></div>
+                            <div class="caijingTop_ltitle">{$r.title}</div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="pagination caijing-pagination"></div>
+        </div>
+        <div class="articleListTop_r fr">
+            <div class="caijingTop_rcon"><img src="/dist/pc/images/in40.jpg" width="280" alt=""></div>
+            <div class="caijingTop_rnav">
+                <ul class="clearfix">
+                    <li class="on"><a href="javaScript:void(0);">沪深</a></li>
+                    <li><a href="javaScript:void(0);">北美</a></li>
+                    <li><a href="javaScript:void(0);">欧洲</a></li>
+                    <li><a href="javaScript:void(0);">期货</a></li>
+                    <li><a href="javaScript:void(0);">外汇</a></li>
+                </ul>
+            </div>
+            <div class="caijingTop_rListcon">
+                <div class="caijingTop_rList" style="display: block;">
+                    <ul id="china">
+
+                        <!--<li id="sz399001">-->
+                            <!--<span class="one">深证成指</span><span class="two"></span><span class="three"></span>-->
+                            <!--<div class="caijingTop_rListpic"><img src="//image.sinajs.cn/newchart/small/nsz399001.gif" alt="" ></div>-->
+                        <!--</li>-->
+                        <!--<li id="int_hangseng">-->
+                            <!--<span class="one">恒生指数</span><span class="two"></span><span class="three"></span>-->
+                            <!--<div class="caijingTop_rListpic"><img src="//image.sinajs.cn/newchart/hk_stock/realtime_min_small/HSI.gif" alt="" ></div>-->
+                        <!--</li>-->
+                        <!--<li id="sz399006">-->
+                            <!--<span class="one">创业板</span><span class="two"></span><span class="three col-g"></span>-->
+                            <!--<div class="caijingTop_rListpic"><img src="http://image.sinajs.cn/newchart/hollow/small/nsz399006.gif" alt="" ></div>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <div class="caijingTop_rList">
+                    <ul>
+                        <li id="int_dji">
+                            <span class="one">道 琼 斯</span><span class="two"></span><span class="three"></span>
+                            <div class="caijingTop_rListpic" style="display: block;"><img src="http://image.sinajs.cn/newchart/usstock/min_idx_py/dji.gif" alt=""></div>
+                        </li>
+                        <li id="int_nasdaq">
+                            <span class="one">纳斯达克</span><span class="two"></span><span class="three"></span>
+                            <div class="caijingTop_rListpic"><img src="http://image.sinajs.cn/newchart/usstock/min_idx_py/ixic.gif" alt=""></div>
+                        </li>
+                        <li id="gb_inx">
+                            <span class="one">标普</span><span class="two"></span><span class="three"></span>
+                            <div class="caijingTop_rListpic"><img src="http://image.sinajs.cn/newchart/usstock/min_idx_py/inx.gif" alt=""></div>
+                        </li>
+                        <!--<li>-->
+                            <!--<span class="one">标普多伦多</span><span class="two col-r">16357.55</span><span class="three col-r">+9.57</span>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <div class="caijingTop_rList">
+                    <ul>
+                        <li><span class="one">英国富时100</span><span class="two col-g">1.1940</span><span class="three col-g">-0.0027</span></li>
+                        <li><span class="one">英镑美元</span><span class="two col-g">1.3527</span><span class="three col-g">-0.0039</span></li>
+                        <li><span class="one">美元日元</span><span class="two col-g">112.9200</span><span class="three col-g">-0.1600</span></li>
+                        <li><span class="one">澳元美元</span><span class="two col-g">0.7823</span><span class="three col-g">-0.0017</span></li>
+                        <li><span class="one">美元瑞郎</span><span class="two col-r">0.9820</span><span class="three col-r">+0.0052</span></li>
+                        <li><span class="one">美元加元</span><span class="two col-r">1.2440</span><span class="three col-r">+0.0022</span></li>
+                        <li><span class="one">美元港币</span><span class="two col-r">7.8213</span><span class="three col-r">+0.0010</span></li>
+                        <li><span class="one">美元人民币</span><span class="two col-r">6.5260</span><span class="three col-r">+0.0291</span></li>
+                        <li><span class="one">美元新加坡元</span><span class="two col-r">--</span><span class="three col-r">--</span></li>
+                    </ul>
+                </div>
+                <div class="caijingTop_rList">
+                    <ul>
+                        <li><span class="one">原油</span><span class="two col-g">1.1940</span><span class="three col-g">-0.0027</span></li>
+                        <li><span class="one">英镑美元</span><span class="two col-g">1.3527</span><span class="three col-g">-0.0039</span></li>
+                        <li><span class="one">美元日元</span><span class="two col-g">112.9200</span><span class="three col-g">-0.1600</span></li>
+                        <li><span class="one">澳元美元</span><span class="two col-g">0.7823</span><span class="three col-g">-0.0017</span></li>
+                        <li><span class="one">美元瑞郎</span><span class="two col-r">0.9820</span><span class="three col-r">+0.0052</span></li>
+                        <li><span class="one">美元加元</span><span class="two col-r">1.2440</span><span class="three col-r">+0.0022</span></li>
+                        <li><span class="one">美元港币</span><span class="two col-r">7.8213</span><span class="three col-r">+0.0010</span></li>
+                        <li><span class="one">美元人民币</span><span class="two col-r">6.5260</span><span class="three col-r">+0.0291</span></li>
+                        <li><span class="one">美元新加坡元</span><span class="two col-r">--</span><span class="three col-r">--</span></li>
+                    </ul>
+                </div>
+                <div class="caijingTop_rList">
+                    <ul>
+                        <li><span class="one">欧元美元</span><span class="two col-g">1.1940</span><span class="three col-g">-0.0027</span></li>
+                        <li><span class="one">英镑美元</span><span class="two col-g">1.3527</span><span class="three col-g">-0.0039</span></li>
+                        <li><span class="one">美元日元</span><span class="two col-g">112.9200</span><span class="three col-g">-0.1600</span></li>
+                        <li><span class="one">澳元美元</span><span class="two col-g">0.7823</span><span class="three col-g">-0.0017</span></li>
+                        <li><span class="one">美元瑞郎</span><span class="two col-r">0.9820</span><span class="three col-r">+0.0052</span></li>
+                        <li><span class="one">美元加元</span><span class="two col-r">1.2440</span><span class="three col-r">+0.0022</span></li>
+                        <li><span class="one">美元港币</span><span class="two col-r">7.8213</span><span class="three col-r">+0.0010</span></li>
+                        <li><span class="one">美元人民币</span><span class="two col-r">6.5260</span><span class="three col-r">+0.0291</span></li>
+                        <li><span class="one">美元新加坡元</span><span class="two col-r">--</span><span class="three col-r">--</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="articleList clearfix">
+        <div class="articleList_l fl">
+            <div class="articleList_lcon hoverBox">
+                <ul id="ajax_list_ul">
+                    <volist name="list" id="r">
+                        <li>
+                            <div class="articleList_lBox">
+                                <a href="{$r.url}" class="block"></a>
+                                <div class="articleList_lpic"><img src="{$r.thumb}" width="220" height="130" alt=""></div>
+                                <div class="articleList_lword">
+                                    <div class="articleList_ltitle ms300">{$r.title}</div>
+                                    <div class="articleList_labout">{$r.description}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            {if $pages}
+            <div class="ajax-page">
+                <div class="ajax_tips">
+                    加载中....
+                </div>
+                <div class="ajaxpage">
+                    {$pages}
+                </div>
+                <div class="fixedloading">
+                    <div class="loader"></div>
+                </div>
+                <div class="fixedloadingbg"></div>
+            </div>
+            {/if}
+            <div class="articleList_lload"><a href="javaScript:void(0);">加载更多+</a></div>
+        </div>
+        <div class="articleList_r fr">
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">财经要闻</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist1" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="inAD"><a href=""><img src="<YP:block pos='financeADV' type='image' />" alt=""></a></div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">股票</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist2" id="r">
+                        <li class="{if $i==1}articleList_rli1{/if}">
+                            <a href="{$r.url}" class="block"></a>
+                            {if $i==1}
+                            <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                            <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                            {else}
+                            <div class="articleList_rtitle ms300">{$r.title}</div>
+                            {/if}
+                        </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="articleList_rbox">
+                <div class="articleList_rcatname"><a href="">专题</a></div>
+                <div class="articleList_ritem hoverBox">
+                    <ul>
+                        <volist name="rightlist3" id="r">
+                            <li class="{if $i==1}articleList_rli1{/if}">
+                                <a href="{$r.url}" class="block"></a>
+                                {if $i==1}
+                                <div class="articleList_rpic"><img src="{$r.thumb}" width="280" height="160" alt=""></div>
+                                <div class="articleList_rtitleW"><div class="articleList_rtitle ms300">{$r.title}</div></div>
+                                {else}
+                                <div class="articleList_rtitle ms300">{$r.title}</div>
+                                {/if}
+                            </li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var caijingSwiper = new Swiper('.caijing-container',{
+        pagination: '.caijing-pagination',
+        loop:true,
+        grabCursor: true,
+        calculateHeight : true
+    });
+    function stock(code,type) {
+        $.ajax({
+            type : "GET",
+            url : "http://hq.sinajs.cn/list="+code,
+            dataType : "script",
+            cache : "false",
+            timeout : 2000,
+            success : function(data, textStatus, jqXHR) {
+                var arr = code.split(",");
+                for (var i =0;i<arr.length;i++){
+                    var str = eval("hq_str_"+arr[i]).split(",");
+                    if(type ==1){
+                        var imgcode = 'n'+arr[i].split("_")[1];
+                        $('#china').append("<li>" +
+                            "<span class='one'>"+str[0]+"</span>" +
+                            "<span class='two'>"+Number(str[1]).toFixed(2)+"</span>" +
+                            "<span class='three'>"+Number(str[2]).toFixed(2)+"</span>" +
+                            "<div class='caijingTop_rListpic'><img src='//image.sinajs.cn/newchart/small/"+imgcode+".gif'></div>" +
+                            "</li>");
+                        if(Number(str[2])<0){
+                            $('#china li').eq(i).find('.two').addClass('col-g');
+                            $('#china li').find('.three').addClass('col-g');
+                        }else {
+                            $('#china li').eq(i).find('.two').addClass('col-r');
+                            $('#china li').eq(i).find('.three').addClass('col-r');
+                        }
+                    }
+                    if(type ==2){
+
+                    }
+                }
+                $('.caijingTop_rList ul li .caijingTop_rListpic').eq(0).show();
+
+//                var arr = "hq_str_"+code.split(",");
+//                console.log(arr);
+//                var str = eval().split(",");
+//                var zs =  Number(str[3]).toFixed(2);
+//                var cj = zs-str[2];
+//                cj = cj.toFixed(2);
+//                console.log(str);
+//                //恒生指数比较特别
+//                if(type==1){
+//                    zs= str[1];
+//                    cj=str[2];
+//                }
+//                if(type==2){
+//                    zs = Number(str[1]).toFixed(2);
+//                    cj = Number(str[4]).toFixed(2);
+//                }
+//                //变绿
+//                if(cj<0){
+//                    $('#'+code).find('span').eq(1).text(zs).addClass('col-g');
+//                    $('#'+code).find('span').eq(2).text(cj).addClass('col-g');
+//                }else {
+//                    $('#'+code).find('span').eq(1).text(zs).addClass('col-r');
+//                    $('#'+code).find('span').eq(2).text(cj).addClass('col-r');
+//                }
+            },
+            error : function() {
+                alert("出错了！");
+            }});
+    }
+    stock("s_sh000001,s_sz399001,s_sh000300,s_sz399415,s_sz399006",1);    //上证指数,深圳,I100,创业板
+    stock("gb_dji,gb_ixic,gb_inx",2);    //道琼斯,纳斯达克,标普指数
+//    stock("int_dji",1)   //道琼斯
+//    stock("int_nasdaq",1)   //纳斯达克
+//    stock("gb_inx",2)   //标普指数
+
+
+</script>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /Public/
+Disallow: /Ainaphp/
+Disallow: /Install/
+Disallow: /Core/
